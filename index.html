@@ -3,18 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>The Tool Doctor - AI Power Tool Diagnosis</title>
 
   <script src="https://cdn.tailwindcss.com"></script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,0..1"
-    rel="stylesheet"
-  >
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,0..1&display=swap" rel="stylesheet">
 
   <style>
     body {
@@ -44,289 +39,645 @@
     }
 
     @keyframes spin {
-      from {
-        transform: rotate(0deg);
-      }
-
-      to {
-        transform: rotate(360deg);
-      }
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
     }
   </style>
 </head>
 
 <body class="bg-[#19120a] text-[#f0e0d1] min-h-screen">
 
-  <!-- NAVBAR -->
-  <nav class="fixed top-0 left-0 right-0 z-50 bg-[#261e15] border-b border-[#534433]">
+<nav class="fixed top-0 left-0 right-0 z-50 bg-[#261e15] border-b border-[#534433]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
+    <a href="#" class="flex items-center gap-2 text-[#ffc887] font-bold text-xl">
+      <span class="material-symbols-outlined">build</span>
+      The Tool Doctor
+    </a>
 
-      <a href="#" class="flex items-center gap-2 text-[#ffc887] font-bold text-xl">
-        <span class="material-symbols-outlined">build</span>
-        The Tool Doctor
-      </a>
-
-      <div class="hidden md:flex items-center gap-6">
-
-        <a href="#" class="text-[#ffc887] hover:text-white">
-          Home
-        </a>
-
-        <a href="#diagnose" class="text-[#d9c3ad] hover:text-[#ffc887]">
-          Diagnose
-        </a>
-
-        <a href="#tools" class="text-[#d9c3ad] hover:text-[#ffc887]">
-          Tools
-        </a>
-
-        <a href="#guides" class="text-[#d9c3ad] hover:text-[#ffc887]">
-          Repair Guides
-        </a>
-
-        <a href="#videos" class="text-[#d9c3ad] hover:text-[#ffc887]">
-          Videos
-        </a>
-
-      </div>
-
-      <button
-        id="nav-diagnose"
-        type="button"
-        class="bg-[#fca311] hover:bg-[#ffc887] text-black font-bold px-4 sm:px-6 py-2 rounded-lg transition">
-
-        Diagnose Tool
-
-      </button>
-
+    <div class="hidden md:flex items-center gap-6">
+      <a href="#" class="text-[#ffc887]">Home</a>
+      <a href="#diagnose" class="text-[#d9c3ad] hover:text-[#ffc887]">Diagnose</a>
+      <a href="#tools" class="text-[#d9c3ad] hover:text-[#ffc887]">Tools</a>
+      <a href="#guides" class="text-[#d9c3ad] hover:text-[#ffc887]">Repair Guides</a>
+      <a href="#videos" class="text-[#d9c3ad] hover:text-[#ffc887]">Videos</a>
     </div>
 
-  </nav>
+    <button id="nav-diagnose" type="button"
+      class="bg-[#fca311] hover:bg-[#ffc887] text-black font-bold px-4 sm:px-6 py-2 rounded-lg transition">
+      Diagnose Tool
+    </button>
 
+  </div>
+</nav>
 
-  <!-- MAIN -->
-  <main
-    id="diagnose"
-    class="max-w-7xl mx-auto px-4 sm:px-6 pt-32 pb-16">
+<main id="diagnose" class="max-w-7xl mx-auto px-4 sm:px-6 pt-32 pb-16">
 
-    <!-- HEADER -->
-    <header class="border-b border-[#534433] pb-8 mb-8">
+  <header class="border-b border-[#534433] pb-8 mb-8">
 
-      <div class="flex items-center gap-3">
+    <div class="flex items-center gap-3">
+      <span class="material-symbols-outlined text-[#ffc887] text-5xl">smart_toy</span>
 
-        <span class="material-symbols-outlined text-[#ffc887] text-5xl">
-          smart_toy
-        </span>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold">
+        AI Power Tool Diagnosis
+      </h1>
+    </div>
 
-        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold">
-          AI Power Tool Diagnosis
-        </h1>
+    <p class="text-base sm:text-lg text-[#d9c3ad] max-w-3xl mt-4">
+      Describe your power tool problem and our AI will analyze the symptoms,
+      identify possible faults and suggest practical repair steps.
+    </p>
 
-      </div>
+  </header>
 
-      <p class="text-base sm:text-lg text-[#d9c3ad] max-w-3xl mt-4">
-        Describe your power tool problem and our AI will analyze the symptoms,
-        identify possible faults and suggest practical repair steps.
-      </p>
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
 
-    </header>
+    <section class="lg:col-span-7">
 
+      <div class="bg-[#261e15] border border-[#534433] rounded-xl p-5 sm:p-6">
 
-    <!-- GRID -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <h2 class="text-2xl font-semibold flex items-center gap-2 mb-6">
+          <span class="material-symbols-outlined text-[#ffc887]">handyman</span>
+          Tool Diagnosis
+        </h2>
 
+        <label for="tool-select" class="block text-sm text-[#d9c3ad] mb-2">
+          Select Tool
+        </label>
 
-      <!-- LEFT SIDE -->
-      <section class="lg:col-span-7">
+        <select id="tool-select"
+          class="w-full bg-[#111111] border border-[#534433] rounded-lg p-4 text-white mb-5">
 
-        <div class="bg-[#261e15] border border-[#534433] rounded-xl p-5 sm:p-6">
+          <option value="Power Tool">Power Tool</option>
+          <option value="Angle Grinder">Angle Grinder</option>
+          <option value="Drill Machine">Drill Machine</option>
+          <option value="Rotary Hammer">Rotary Hammer</option>
+          <option value="Impact Drill">Impact Drill</option>
+          <option value="Circular Saw">Circular Saw</option>
+          <option value="Jigsaw">Jigsaw</option>
+          <option value="Cut Off Machine">Cut Off Machine</option>
+          <option value="Heat Gun">Heat Gun</option>
 
-          <h2 class="text-2xl font-semibold flex items-center gap-2 mb-6">
+        </select>
 
-            <span class="material-symbols-outlined text-[#ffc887]">
-              handyman
-            </span>
+        <label for="problem-description"
+          class="block text-sm text-[#d9c3ad] mb-2">
+          Describe Problem
+        </label>
 
-            Tool Diagnosis
+        <textarea id="problem-description"
+          rows="7"
+          class="w-full bg-[#111111] border border-[#534433] rounded-lg p-4 text-white resize-none"
+          placeholder="Example: My DeWalt drill makes a grinding noise, sparks from the vents and loses power when I press the trigger..."></textarea>
 
-          </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-5">
 
+          <button id="upload-button" type="button"
+            class="border border-[#534433] bg-[#3c3329] hover:border-[#ffc887] p-5 rounded-lg flex items-center justify-center gap-2 transition">
 
-          <!-- TOOL -->
-          <label
-            for="tool-select"
-            class="block text-sm text-[#d9c3ad] mb-2">
+            <span class="material-symbols-outlined">upload_file</span>
+            Upload Photo
 
-            Select Tool
+          </button>
 
-          </label>
+          <button id="camera-button" type="button"
+            class="border border-[#534433] bg-[#3c3329] hover:border-[#ffc887] p-5 rounded-lg flex items-center justify-center gap-2 transition">
 
-          <select
-            id="tool-select"
-            class="w-full bg-[#111111] border border-[#534433] rounded-lg p-4 text-white mb-5">
-
-            <option value="Power Tool">
-              Power Tool
-            </option>
-
-            <option value="Angle Grinder">
-              Angle Grinder
-            </option>
-
-            <option value="Drill Machine">
-              Drill Machine
-            </option>
-
-            <option value="Rotary Hammer">
-              Rotary Hammer
-            </option>
-
-            <option value="Impact Drill">
-              Impact Drill
-            </option>
-
-            <option value="Circular Saw">
-              Circular Saw
-            </option>
-
-            <option value="Jigsaw">
-              Jigsaw
-            </option>
-
-            <option value="Cut Off Machine">
-              Cut Off Machine
-            </option>
-
-            <option value="Heat Gun">
-              Heat Gun
-            </option>
-
-          </select>
-
-
-          <!-- PROBLEM -->
-          <label
-            for="problem-description"
-            class="block text-sm text-[#d9c3ad] mb-2">
-
-            Describe Problem
-
-          </label>
-
-          <textarea
-            id="problem-description"
-            rows="7"
-            class="w-full bg-[#111111] border border-[#534433] rounded-lg p-4 text-white resize-none"
-            placeholder="Example: My DeWalt drill makes a grinding noise, sparks from the vents and loses power when I press the trigger..."></textarea>
-
-
-          <!-- PHOTO BUTTONS -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-5">
-
-            <button
-              id="upload-button"
-              type="button"
-              class="border border-[#534433] bg-[#3c3329] hover:border-[#ffc887] hover:bg-[#453a2f] p-5 rounded-lg flex items-center justify-center gap-2 transition">
-
-              <span class="material-symbols-outlined">
-                upload_file
-              </span>
-
-              Upload Photo
-
-            </button>
-
-
-            <button
-              id="camera-button"
-              type="button"
-              class="border border-[#534433] bg-[#3c3329] hover:border-[#ffc887] hover:bg-[#453a2f] p-5 rounded-lg flex items-center justify-center gap-2 transition">
-
-              <span class="material-symbols-outlined">
-                photo_camera
-              </span>
-
-              Use Camera
-
-            </button>
-
-          </div>
-
-
-          <!-- HIDDEN FILE INPUT -->
-          <input
-            id="photo-input"
-            type="file"
-            accept="image/*"
-            class="hidden">
-
-
-          <!-- SELECTED PHOTO -->
-          <div
-            id="photo-preview"
-            class="hidden mt-4 bg-[#111111] border border-[#534433] rounded-lg p-4">
-
-            <div class="flex items-center gap-3">
-
-              <span class="material-symbols-outlined text-[#ffc887]">
-                image
-              </span>
-
-              <div class="min-w-0">
-
-                <p class="font-semibold">
-                  Photo Selected
-                </p>
-
-                <p
-                  id="photo-name"
-                  class="text-sm text-[#a18e79] truncate">
-                </p>
-
-              </div>
-
-            </div>
-
-          </div>
-
-
-          <!-- START BUTTON -->
-          <button
-            id="start-button"
-            type="button"
-            class="w-full mt-6 bg-[#fca311] hover:bg-[#ffc887] text-black font-bold py-4 rounded-lg flex justify-center items-center gap-2 transition">
-
-            <span class="material-symbols-outlined">
-              memory
-            </span>
-
-            Start AI Diagnosis
+            <span class="material-symbols-outlined">photo_camera</span>
+            Use Camera
 
           </button>
 
         </div>
 
+        <input id="photo-input" type="file" accept="image/*" class="hidden">
 
-        <!-- SAFETY -->
-        <div class="mt-6 bg-[#1c1c1c] border-l-4 border-[#fca311] p-5 rounded-lg">
+        <div id="photo-preview"
+          class="hidden mt-4 bg-[#111111] border border-[#534433] rounded-lg p-4">
 
-          <div class="flex gap-3">
+          <div class="flex items-center gap-3">
 
-            <span class="material-symbols-outlined text-[#ffc887]">
+            <span class="material-symbols-outlined text-[#ffc887]">image</span>
+
+            <div class="min-w-0">
+              <p class="font-semibold">Photo Selected</p>
+
+              <p id="photo-name"
+                class="text-sm text-[#a18e79] truncate">
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+        <button id="start-button" type="button"
+          class="w-full mt-6 bg-[#fca311] hover:bg-[#ffc887] text-black font-bold py-4 rounded-lg flex justify-center items-center gap-2 transition">
+
+          <span class="material-symbols-outlined">memory</span>
+          Start AI Diagnosis
+
+        </button>
+
+      </div>
+
+      <div class="mt-6 bg-[#1c1c1c] border-l-4 border-[#fca311] p-5 rounded-lg">
+
+        <div class="flex gap-3">
+
+          <span class="material-symbols-outlined text-[#ffc887]">warning</span>
+
+          <div>
+
+            <h3 class="font-bold text-[#ffc887]">Safety First</h3>
+
+            <p class="text-[#d9c3ad] text-sm mt-1">
+              Always unplug electrical tools before opening or repairing them.
+              AI results are guidance only. Use proper PPE and verify electrical
+              conditions before repair.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <section class="lg:col-span-5">
+
+      <div class="bg-[#261e15] border border-[#534433] rounded-xl overflow-hidden min-h-[500px]">
+
+        <div class="p-5 sm:p-6 border-b border-[#534433]">
+
+          <h2 class="text-2xl font-semibold flex items-center gap-2">
+
+            <span class="material-symbols-outlined text-[#97dbff]">
+              troubleshoot
+            </span>
+
+            Diagnosis Result
+
+          </h2>
+
+        </div>
+
+        <div id="result-area" class="p-5 sm:p-6">
+
+          <div class="text-center py-20 text-[#a18e79]">
+
+            <span class="material-symbols-outlined text-6xl mb-4">
+              engineering
+            </span>
+
+            <p class="text-lg">
+              Your AI diagnosis will appear here.
+            </p>
+
+            <p class="text-sm mt-2">
+              Describe the problem and press Start AI Diagnosis.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </div>
+
+</main>
+
+<footer class="border-t border-[#534433] bg-[#140d06] py-10">
+
+  <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between gap-5">
+
+    <div>
+
+      <div class="flex items-center gap-2 font-bold text-[#ffc887]">
+
+        <span class="material-symbols-outlined">build</span>
+        The Tool Doctor
+
+      </div>
+
+      <p class="text-sm text-[#a18e79] mt-2">
+        Diagnose. Repair. Restore.
+      </p>
+
+    </div>
+
+    <div class="flex flex-wrap gap-5 text-sm text-[#a18e79]">
+
+      <a href="#" class="hover:text-[#ffc887]">About</a>
+      <a href="#" class="hover:text-[#ffc887]">Contact</a>
+      <a href="#" class="hover:text-[#ffc887]">Privacy</a>
+      <a href="#" class="hover:text-[#ffc887]">Safety</a>
+
+    </div>
+
+  </div>
+
+</footer>
+
+<script>
+
+/* =========================================
+   IMPORTANT: CLOUDFLARE WORKER URL
+========================================= */
+
+const WORKER_URL =
+  "https://thetooldoctor.sajidnaaz20.workers.dev/";
+
+
+/* =========================================
+   ELEMENTS
+========================================= */
+
+const startButton =
+  document.getElementById("start-button");
+
+const navDiagnose =
+  document.getElementById("nav-diagnose");
+
+const textarea =
+  document.getElementById("problem-description");
+
+const toolSelect =
+  document.getElementById("tool-select");
+
+const resultArea =
+  document.getElementById("result-area");
+
+const uploadButton =
+  document.getElementById("upload-button");
+
+const cameraButton =
+  document.getElementById("camera-button");
+
+const photoInput =
+  document.getElementById("photo-input");
+
+const photoPreview =
+  document.getElementById("photo-preview");
+
+const photoName =
+  document.getElementById("photo-name");
+
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+navDiagnose.addEventListener("click", () => {
+
+  document
+    .getElementById("diagnose")
+    .scrollIntoView({
+      behavior: "smooth"
+    });
+
+  setTimeout(() => {
+    textarea.focus();
+  }, 500);
+
+});
+
+
+/* =========================================
+   UPLOAD PHOTO
+========================================= */
+
+uploadButton.addEventListener("click", () => {
+
+  photoInput.removeAttribute("capture");
+
+  photoInput.click();
+
+});
+
+
+/* =========================================
+   CAMERA
+========================================= */
+
+cameraButton.addEventListener("click", () => {
+
+  photoInput.setAttribute(
+    "capture",
+    "environment"
+  );
+
+  photoInput.click();
+
+});
+
+
+/* =========================================
+   PHOTO SELECTED
+========================================= */
+
+photoInput.addEventListener("change", () => {
+
+  if (
+    !photoInput.files ||
+    !photoInput.files.length
+  ) {
+    return;
+  }
+
+  const file =
+    photoInput.files[0];
+
+  photoName.textContent =
+    file.name;
+
+  photoPreview.classList.remove("hidden");
+
+});
+
+
+/* =========================================
+   START AI DIAGNOSIS
+========================================= */
+
+startButton.addEventListener(
+  "click",
+  async () => {
+
+    const problem =
+      textarea.value.trim();
+
+    const tool =
+      toolSelect.value;
+
+
+    if (!problem) {
+
+      alert(
+        "Please describe the power tool problem first."
+      );
+
+      textarea.focus();
+
+      return;
+    }
+
+
+    startButton.disabled = true;
+
+    startButton.innerHTML = `
+      <span class="material-symbols-outlined spin">
+        progress_activity
+      </span>
+      AI Analyzing...
+    `;
+
+
+    resultArea.innerHTML = `
+      <div class="text-center py-20">
+
+        <span class="material-symbols-outlined text-5xl text-[#ffc887] spin">
+          progress_activity
+        </span>
+
+        <p class="text-lg mt-4">
+          AI is analyzing your tool...
+        </p>
+
+        <p class="text-sm text-[#a18e79] mt-2">
+          Checking symptoms and possible causes.
+        </p>
+
+      </div>
+    `;
+
+
+    try {
+
+      const response =
+        await fetch(
+          WORKER_URL,
+          {
+            method: "POST",
+
+            headers: {
+              "Content-Type":
+                "application/json"
+            },
+
+            body: JSON.stringify({
+              tool: tool,
+              problem: problem
+            })
+          }
+        );
+
+
+      const text =
+        await response.text();
+
+
+      let data;
+
+
+      try {
+
+        data =
+          JSON.parse(text);
+
+      } catch {
+
+        throw new Error(
+          "Worker returned an invalid response."
+        );
+
+      }
+
+
+      if (!response.ok) {
+
+        const detail =
+          data.details
+            ? " Gemini API error: " +
+              JSON.stringify(data.details)
+            : "";
+
+        throw new Error(
+          (data.error ||
+          "AI diagnosis failed.") +
+          detail
+        );
+
+      }
+
+
+      showDiagnosis(data);
+
+
+    } catch (error) {
+
+      console.error(
+        "Diagnosis error:",
+        error
+      );
+
+
+      resultArea.innerHTML = `
+
+        <div class="bg-[#3a1717] border border-red-500 rounded-lg p-5">
+
+          <div class="flex items-start gap-3">
+
+            <span class="material-symbols-outlined text-red-400">
+              error
+            </span>
+
+            <div>
+
+              <h3 class="font-bold text-red-400">
+                Diagnosis Error
+              </h3>
+
+              <p class="text-sm mt-2 text-[#f0e0d1] break-words">
+                ${escapeHTML(error.message)}
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      `;
+
+    } finally {
+
+      startButton.disabled = false;
+
+      startButton.innerHTML = `
+
+        <span class="material-symbols-outlined">
+          memory
+        </span>
+
+        Start AI Diagnosis
+
+      `;
+
+    }
+
+  }
+);
+
+
+/* =========================================
+   SHOW DIAGNOSIS
+========================================= */
+
+function showDiagnosis(data) {
+
+  const possibleProblem =
+    data.possibleProblem ||
+    "Possible fault detected";
+
+  const confidence =
+    Number(data.confidence) || 0;
+
+  const symptomMatch =
+    data.symptomMatch ||
+    "Symptoms analyzed by AI.";
+
+  const recommendedAction =
+    data.recommendedAction ||
+    "Further inspection recommended.";
+
+  const alternative =
+    data.alternative ||
+    "No alternative fault identified.";
+
+  const alternativeConfidence =
+    Number(data.alternativeConfidence) || 0;
+
+  const safety =
+    data.safety ||
+    "Disconnect the tool from power before inspection.";
+
+
+  resultArea.innerHTML = `
+
+    <div class="space-y-5">
+
+      <div class="bg-[#252525] border border-[#534433] rounded-lg p-5 shadow-md">
+
+        <div class="flex flex-col sm:flex-row justify-between gap-4 items-start">
+
+          <div>
+
+            <p class="text-xs uppercase tracking-wider text-[#a18e79]">
+              Most Likely Problem
+            </p>
+
+            <h3 class="text-xl font-bold text-[#fca311] mt-1">
+              ${escapeHTML(possibleProblem)}
+            </h3>
+
+          </div>
+
+          <span class="bg-[#ffc887]/10 text-[#ffc887] border border-[#ffc887]/30 px-3 py-2 rounded-lg text-sm whitespace-nowrap">
+
+            ✓ ${confidence}% Confidence
+
+          </span>
+
+        </div>
+
+
+        <div class="bg-[#111111] border border-[#534433] rounded-lg p-4 mt-5">
+
+          <p class="text-xs text-[#a18e79] uppercase tracking-wider mb-2">
+            Symptom Match
+          </p>
+
+          <p class="text-[#f0e0d1]">
+            ${escapeHTML(symptomMatch)}
+          </p>
+
+        </div>
+
+
+        <div class="mt-5">
+
+          <p class="text-sm text-[#ffc887] font-bold uppercase mb-2">
+            Recommended Action
+          </p>
+
+          <p class="text-[#f0e0d1] whitespace-pre-line">
+            ${escapeHTML(recommendedAction)}
+          </p>
+
+        </div>
+
+
+        <div class="bg-[#111111] border border-[#534433] rounded-lg p-4 mt-5">
+
+          <div class="flex items-start gap-3">
+
+            <span class="material-symbols-outlined text-[#fca311]">
               warning
             </span>
 
             <div>
 
-              <h3 class="font-bold text-[#ffc887]">
-                Safety First
-              </h3>
+              <p class="text-sm text-[#ffc887] font-bold uppercase mb-2">
+                Safety
+              </p>
 
-              <p class="text-[#d9c3ad] text-sm mt-1">
-                Always unplug electrical tools before opening or repairing them.
-                AI results are guidance only. Use proper PPE and verify electrical
-                conditions before repair.
+              <p class="text-sm text-[#f0e0d1]">
+                ${escapeHTML(safety)}
               </p>
 
             </div>
@@ -335,642 +686,99 @@
 
         </div>
 
-      </section>
 
+        <div class="border-t border-[#534433] mt-5 pt-5">
 
-      <!-- RIGHT SIDE -->
-      <section class="lg:col-span-5">
+          <p class="text-xs text-[#a18e79] uppercase">
+            Alternative Possibility
+          </p>
 
-        <div
-          class="bg-[#261e15] border border-[#534433] rounded-xl overflow-hidden min-h-[500px]">
+          <p class="font-semibold mt-1">
+            ${escapeHTML(alternative)}
+          </p>
 
-          <!-- RESULT HEADER -->
-          <div class="p-5 sm:p-6 border-b border-[#534433]">
-
-            <h2 class="text-2xl font-semibold flex items-center gap-2">
-
-              <span class="material-symbols-outlined text-[#97dbff]">
-                troubleshoot
-              </span>
-
-              Diagnosis Result
-
-            </h2>
-
-          </div>
-
-
-          <!-- RESULT -->
-          <div
-            id="result-area"
-            class="p-5 sm:p-6">
-
-            <div class="text-center py-20 text-[#a18e79]">
-
-              <span class="material-symbols-outlined text-6xl mb-4">
-                engineering
-              </span>
-
-              <p class="text-lg">
-                Your AI diagnosis will appear here.
-              </p>
-
-              <p class="text-sm mt-2">
-                Describe the problem and press Start AI Diagnosis.
-              </p>
-
-            </div>
-
-          </div>
+          <p class="text-sm text-[#a18e79] mt-1">
+            ${alternativeConfidence}% confidence
+          </p>
 
         </div>
-
-      </section>
-
-    </div>
-
-  </main>
-
-
-  <!-- FOOTER -->
-  <footer class="border-t border-[#534433] bg-[#140d06] py-10">
-
-    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between gap-5">
-
-      <div>
-
-        <div class="flex items-center gap-2 font-bold text-[#ffc887]">
-
-          <span class="material-symbols-outlined">
-            build
-          </span>
-
-          The Tool Doctor
-
-        </div>
-
-        <p class="text-sm text-[#a18e79] mt-2">
-          Diagnose. Repair. Restore.
-        </p>
 
       </div>
 
-      <div class="flex flex-wrap gap-5 text-sm text-[#a18e79]">
 
-        <a href="#" class="hover:text-[#ffc887]">
-          About
-        </a>
+      <button
+        id="another-button"
+        type="button"
+        class="w-full border border-[#534433] hover:border-[#ffc887] hover:bg-[#3c3329] py-3 rounded-lg transition">
 
-        <a href="#" class="hover:text-[#ffc887]">
-          Contact
-        </a>
+        Diagnose Another Tool
 
-        <a href="#" class="hover:text-[#ffc887]">
-          Privacy
-        </a>
-
-        <a href="#" class="hover:text-[#ffc887]">
-          Safety
-        </a>
-
-      </div>
+      </button>
 
     </div>
+  `;
 
-  </footer>
 
-
-  <!-- JAVASCRIPT -->
-  <script>
-
-    /* ==============================
-       THE TOOL DOCTOR AI WORKER
-    ============================== */
-
-    const WORKER_URL =
-      "https://the-tool-doctor-ai.sajidnaaz20.workers.dev/";
-
-
-    /* ==============================
-       ELEMENTS
-    ============================== */
-
-    const startButton =
-      document.getElementById("start-button");
-
-    const navDiagnose =
-      document.getElementById("nav-diagnose");
-
-    const textarea =
-      document.getElementById("problem-description");
-
-    const toolSelect =
-      document.getElementById("tool-select");
-
-    const resultArea =
-      document.getElementById("result-area");
-
-    const uploadButton =
-      document.getElementById("upload-button");
-
-    const cameraButton =
-      document.getElementById("camera-button");
-
-    const photoInput =
-      document.getElementById("photo-input");
-
-    const photoPreview =
-      document.getElementById("photo-preview");
-
-    const photoName =
-      document.getElementById("photo-name");
-
-
-    /* ==============================
-       NAV DIAGNOSE BUTTON
-    ============================== */
-
-    navDiagnose.addEventListener("click", () => {
-
-      document
-        .getElementById("diagnose")
-        .scrollIntoView({
-          behavior: "smooth"
-        });
-
-      setTimeout(() => {
-        textarea.focus();
-      }, 500);
-
-    });
-
-
-    /* ==============================
-       UPLOAD PHOTO
-    ============================== */
-
-    uploadButton.addEventListener("click", () => {
-
-      photoInput.removeAttribute("capture");
-
-      photoInput.click();
-
-    });
-
-
-    /* ==============================
-       CAMERA
-    ============================== */
-
-    cameraButton.addEventListener("click", () => {
-
-      photoInput.setAttribute(
-        "capture",
-        "environment"
-      );
-
-      photoInput.click();
-
-    });
-
-
-    /* ==============================
-       PHOTO SELECTED
-    ============================== */
-
-    photoInput.addEventListener("change", () => {
-
-      if (!photoInput.files || !photoInput.files.length) {
-        return;
-      }
-
-      const file =
-        photoInput.files[0];
-
-      photoName.textContent =
-        file.name;
-
-      photoPreview.classList.remove("hidden");
-
-    });
-
-
-    /* ==============================
-       START AI DIAGNOSIS
-    ============================== */
-
-    startButton.addEventListener(
-      "click",
-      async () => {
-
-        const problem =
-          textarea.value.trim();
-
-        const tool =
-          toolSelect.value;
-
-
-        /* CHECK INPUT */
-
-        if (!problem) {
-
-          alert(
-            "Please describe the power tool problem first."
-          );
-
-          textarea.focus();
-
-          return;
-        }
-
-
-        /* LOADING */
-
-        startButton.disabled = true;
-
-        startButton.innerHTML = `
-          <span class="material-symbols-outlined spin">
-            progress_activity
-          </span>
-          AI Analyzing...
-        `;
-
-
-        resultArea.innerHTML = `
-          <div class="text-center py-20">
-
-            <span class="material-symbols-outlined text-5xl text-[#ffc887] spin">
-              progress_activity
-            </span>
-
-            <p class="text-lg mt-4">
-              AI is analyzing your tool...
-            </p>
-
-            <p class="text-sm text-[#a18e79] mt-2">
-              Checking symptoms and possible causes.
-            </p>
-
-          </div>
-        `;
-
-
-        try {
-
-          /* SEND REQUEST TO CLOUDFLARE WORKER */
-
-          const response =
-            await fetch(
-              WORKER_URL,
-              {
-                method: "POST",
-
-                headers: {
-                  "Content-Type":
-                    "application/json"
-                },
-
-                body: JSON.stringify({
-
-                  tool: tool,
-
-                  problem: problem
-
-                })
-
-              }
-            );
-
-
-          /* GET RESPONSE */
-
-          const text =
-            await response.text();
-
-
-          let data;
-
-
-          /* PARSE JSON */
-
-          try {
-
-            data =
-              JSON.parse(text);
-
-          } catch {
-
-            throw new Error(
-              "Worker returned an invalid response."
-            );
-
-          }
-
-
-          /* CHECK ERROR */
-
-          if (!response.ok) {
-
-            throw new Error(
-              data.error ||
-              "AI diagnosis failed."
-            );
-
-          }
-
-
-          /* SHOW RESULT */
-
-          showDiagnosis(data);
-
-
-        } catch (error) {
-
-          console.error(
-            "Diagnosis error:",
-            error
-          );
-
-
-          resultArea.innerHTML = `
-
-            <div class="bg-[#3a1717] border border-red-500 rounded-lg p-5">
-
-              <div class="flex items-start gap-3">
-
-                <span class="material-symbols-outlined text-red-400">
-                  error
-                </span>
-
-                <div>
-
-                  <h3 class="font-bold text-red-400">
-                    Diagnosis Error
-                  </h3>
-
-                  <p class="text-sm mt-2 text-[#f0e0d1]">
-                    ${escapeHTML(error.message)}
-                  </p>
-
-                </div>
-
-              </div>
-
-            </div>
-
-          `;
-
-        } finally {
-
-          /* RESTORE BUTTON */
-
-          startButton.disabled = false;
-
-          startButton.innerHTML = `
-
-            <span class="material-symbols-outlined">
-              memory
-            </span>
-
-            Start AI Diagnosis
-
-          `;
-
-        }
-
-      }
+  const anotherButton =
+    document.getElementById(
+      "another-button"
     );
 
 
-    /* ==============================
-       SHOW AI DIAGNOSIS
-    ============================== */
+  anotherButton.addEventListener(
+    "click",
+    () => {
 
-    function showDiagnosis(data) {
+      textarea.value = "";
 
-      const possibleProblem =
-        data.possibleProblem ||
-        "Possible fault detected";
+      photoInput.value = "";
 
-
-      const confidence =
-        Number(data.confidence) || 0;
-
-
-      const symptomMatch =
-        data.symptomMatch ||
-        "Symptoms analyzed by AI.";
-
-
-      const recommendedAction =
-        data.recommendedAction ||
-        "Further inspection recommended.";
-
-
-      const alternative =
-        data.alternative ||
-        "No alternative fault identified.";
-
-
-      const alternativeConfidence =
-        Number(data.alternativeConfidence) || 0;
-
-
-      const safety =
-        data.safety ||
-        "Disconnect the tool from power before inspection.";
-
+      photoPreview.classList.add("hidden");
 
       resultArea.innerHTML = `
 
-        <div class="space-y-5">
+        <div class="text-center py-20 text-[#a18e79]">
 
+          <span class="material-symbols-outlined text-6xl mb-4">
+            engineering
+          </span>
 
-          <!-- MAIN DIAGNOSIS -->
+          <p class="text-lg">
+            Your AI diagnosis will appear here.
+          </p>
 
-          <div class="bg-[#252525] border border-[#534433] rounded-lg p-5 shadow-md">
-
-            <div class="flex flex-col sm:flex-row justify-between gap-4 items-start">
-
-              <div>
-
-                <p class="text-xs uppercase tracking-wider text-[#a18e79]">
-                  Most Likely Problem
-                </p>
-
-                <h3 class="text-xl font-bold text-[#fca311] mt-1">
-                  ${escapeHTML(possibleProblem)}
-                </h3>
-
-              </div>
-
-
-              <span class="bg-[#ffc887]/10 text-[#ffc887] border border-[#ffc887]/30 px-3 py-2 rounded-lg text-sm whitespace-nowrap">
-
-                ✓ ${confidence}% Confidence
-
-              </span>
-
-            </div>
-
-
-            <!-- SYMPTOM MATCH -->
-
-            <div class="bg-[#111111] border border-[#534433] rounded-lg p-4 mt-5">
-
-              <p class="text-xs text-[#a18e79] uppercase tracking-wider mb-2">
-                Symptom Match
-              </p>
-
-              <p class="text-[#f0e0d1]">
-                ${escapeHTML(symptomMatch)}
-              </p>
-
-            </div>
-
-
-            <!-- RECOMMENDED ACTION -->
-
-            <div class="mt-5">
-
-              <p class="text-sm text-[#ffc887] font-bold uppercase mb-2">
-                Recommended Action
-              </p>
-
-              <p class="text-[#f0e0d1] whitespace-pre-line">
-                ${escapeHTML(recommendedAction)}
-              </p>
-
-            </div>
-
-
-            <!-- SAFETY -->
-
-            <div class="bg-[#111111] border border-[#534433] rounded-lg p-4 mt-5">
-
-              <div class="flex items-start gap-3">
-
-                <span class="material-symbols-outlined text-[#fca311]">
-                  warning
-                </span>
-
-                <div>
-
-                  <p class="text-sm text-[#ffc887] font-bold uppercase mb-2">
-                    Safety
-                  </p>
-
-                  <p class="text-sm text-[#f0e0d1]">
-                    ${escapeHTML(safety)}
-                  </p>
-
-                </div>
-
-              </div>
-
-            </div>
-
-
-            <!-- ALTERNATIVE -->
-
-            <div class="border-t border-[#534433] mt-5 pt-5">
-
-              <p class="text-xs text-[#a18e79] uppercase">
-                Alternative Possibility
-              </p>
-
-              <p class="font-semibold mt-1">
-                ${escapeHTML(alternative)}
-              </p>
-
-              <p class="text-sm text-[#a18e79] mt-1">
-                ${alternativeConfidence}% confidence
-              </p>
-
-            </div>
-
-          </div>
-
-
-          <!-- NEW DIAGNOSIS -->
-
-          <button
-            id="another-button"
-            type="button"
-            class="w-full border border-[#534433] hover:border-[#ffc887] hover:bg-[#3c3329] py-3 rounded-lg transition">
-
-            Diagnose Another Tool
-
-          </button>
-
+          <p class="text-sm mt-2">
+            Describe the problem and press Start AI Diagnosis.
+          </p>
 
         </div>
+
       `;
 
-
-      /* ANOTHER DIAGNOSIS BUTTON */
-
-      const anotherButton =
-        document.getElementById(
-          "another-button"
-        );
-
-
-      anotherButton.addEventListener(
-        "click",
-        () => {
-
-          textarea.value = "";
-
-          resultArea.innerHTML = `
-
-            <div class="text-center py-20 text-[#a18e79]">
-
-              <span class="material-symbols-outlined text-6xl mb-4">
-                engineering
-              </span>
-
-              <p class="text-lg">
-                Your AI diagnosis will appear here.
-              </p>
-
-              <p class="text-sm mt-2">
-                Describe the problem and press Start AI Diagnosis.
-              </p>
-
-            </div>
-
-          `;
-
-          textarea.focus();
-
-        }
-      );
+      textarea.focus();
 
     }
+  );
+
+}
 
 
-    /* ==============================
-       SECURITY
-    ============================== */
+/* =========================================
+   SECURITY
+========================================= */
 
-    function escapeHTML(value) {
+function escapeHTML(value) {
 
-      return String(value)
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
 
-        .replace(/&/g, "&amp;")
+}
 
-        .replace(/</g, "&lt;")
-
-        .replace(/>/g, "&gt;")
-
-        .replace(/"/g, "&quot;")
-
-        .replace(/'/g, "&#039;");
-
-    }
-
-  </script>
+</script>
 
 </body>
-</html>
+  </html>
