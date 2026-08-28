@@ -1,15 +1,20 @@
-<!DOCTYPE html>
+here<!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>The Tool Doctor - AI Power Tool Diagnosis</title>
 
   <script src="https://cdn.tailwindcss.com"></script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,0..1&display=swap" rel="stylesheet">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,0..1&display=swap"
+    rel="stylesheet"
+  >
 
   <style>
     body {
@@ -39,8 +44,21 @@
     }
 
     @keyframes spin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    #preview-image {
+      max-height: 260px;
+      width: 100%;
+      object-fit: contain;
+      border-radius: 10px;
+      background: #111111;
     }
   </style>
 </head>
@@ -63,29 +81,40 @@
       <a href="#videos" class="text-[#d9c3ad] hover:text-[#ffc887]">Videos</a>
     </div>
 
-    <button id="nav-diagnose" type="button"
-      class="bg-[#fca311] hover:bg-[#ffc887] text-black font-bold px-4 sm:px-6 py-2 rounded-lg transition">
+    <button
+      id="nav-diagnose"
+      type="button"
+      class="bg-[#fca311] hover:bg-[#ffc887] text-black font-bold px-4 sm:px-6 py-2 rounded-lg transition"
+    >
       Diagnose Tool
     </button>
 
   </div>
 </nav>
 
-<main id="diagnose" class="max-w-7xl mx-auto px-4 sm:px-6 pt-32 pb-16">
+<main
+  id="diagnose"
+  class="max-w-7xl mx-auto px-4 sm:px-6 pt-32 pb-16"
+>
 
   <header class="border-b border-[#534433] pb-8 mb-8">
 
     <div class="flex items-center gap-3">
-      <span class="material-symbols-outlined text-[#ffc887] text-5xl">smart_toy</span>
+
+      <span class="material-symbols-outlined text-[#ffc887] text-5xl">
+        smart_toy
+      </span>
 
       <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold">
         AI Power Tool Diagnosis
       </h1>
+
     </div>
 
     <p class="text-base sm:text-lg text-[#d9c3ad] max-w-3xl mt-4">
-      Describe your power tool problem and our AI will analyze the symptoms,
-      identify possible faults and suggest practical repair steps.
+      Describe your power tool problem or upload a photo.
+      Our AI will analyze the symptoms, identify possible faults
+      and suggest practical repair steps.
     </p>
 
   </header>
@@ -97,84 +126,169 @@
       <div class="bg-[#261e15] border border-[#534433] rounded-xl p-5 sm:p-6">
 
         <h2 class="text-2xl font-semibold flex items-center gap-2 mb-6">
-          <span class="material-symbols-outlined text-[#ffc887]">handyman</span>
+
+          <span class="material-symbols-outlined text-[#ffc887]">
+            handyman
+          </span>
+
           Tool Diagnosis
+
         </h2>
 
-        <label for="tool-select" class="block text-sm text-[#d9c3ad] mb-2">
+        <label
+          for="tool-select"
+          class="block text-sm text-[#d9c3ad] mb-2"
+        >
           Select Tool
         </label>
 
-        <select id="tool-select"
-          class="w-full bg-[#111111] border border-[#534433] rounded-lg p-4 text-white mb-5">
+        <select
+          id="tool-select"
+          class="w-full bg-[#111111] border border-[#534433] rounded-lg p-4 text-white mb-5"
+        >
 
-          <option value="Power Tool">Power Tool</option>
-          <option value="Angle Grinder">Angle Grinder</option>
-          <option value="Drill Machine">Drill Machine</option>
-          <option value="Rotary Hammer">Rotary Hammer</option>
-          <option value="Impact Drill">Impact Drill</option>
-          <option value="Circular Saw">Circular Saw</option>
-          <option value="Jigsaw">Jigsaw</option>
-          <option value="Cut Off Machine">Cut Off Machine</option>
-          <option value="Heat Gun">Heat Gun</option>
+          <option value="Power Tool">
+            Power Tool
+          </option>
+
+          <option value="Angle Grinder">
+            Angle Grinder
+          </option>
+
+          <option value="Drill Machine">
+            Drill Machine
+          </option>
+
+          <option value="Rotary Hammer">
+            Rotary Hammer
+          </option>
+
+          <option value="Impact Drill">
+            Impact Drill
+          </option>
+
+          <option value="Circular Saw">
+            Circular Saw
+          </option>
+
+          <option value="Jigsaw">
+            Jigsaw
+          </option>
+
+          <option value="Cut Off Machine">
+            Cut Off Machine
+          </option>
+
+          <option value="Heat Gun">
+            Heat Gun
+          </option>
 
         </select>
 
-        <label for="problem-description"
-          class="block text-sm text-[#d9c3ad] mb-2">
+        <label
+          for="problem-description"
+          class="block text-sm text-[#d9c3ad] mb-2"
+        >
           Describe Problem
         </label>
 
-        <textarea id="problem-description"
+        <textarea
+          id="problem-description"
           rows="7"
           class="w-full bg-[#111111] border border-[#534433] rounded-lg p-4 text-white resize-none"
-          placeholder="Example: My DeWalt drill makes a grinding noise, sparks from the vents and loses power when I press the trigger..."></textarea>
+          placeholder="Example: My angle grinder sparks heavily and loses power."
+        ></textarea>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-5">
 
-          <button id="upload-button" type="button"
-            class="border border-[#534433] bg-[#3c3329] hover:border-[#ffc887] p-5 rounded-lg flex items-center justify-center gap-2 transition">
+          <button
+            id="upload-button"
+            type="button"
+            class="border border-[#534433] bg-[#3c3329] hover:border-[#ffc887] p-5 rounded-lg flex items-center justify-center gap-2 transition"
+          >
 
-            <span class="material-symbols-outlined">upload_file</span>
-            Upload Photo
+            <span class="material-symbols-outlined">
+              upload_file
+            </span>
+
+            Gallery
 
           </button>
 
-          <button id="camera-button" type="button"
-            class="border border-[#534433] bg-[#3c3329] hover:border-[#ffc887] p-5 rounded-lg flex items-center justify-center gap-2 transition">
+          <button
+            id="camera-button"
+            type="button"
+            class="border border-[#534433] bg-[#3c3329] hover:border-[#ffc887] p-5 rounded-lg flex items-center justify-center gap-2 transition"
+          >
 
-            <span class="material-symbols-outlined">photo_camera</span>
-            Use Camera
+            <span class="material-symbols-outlined">
+              photo_camera
+            </span>
+
+            Camera
 
           </button>
 
         </div>
 
-        <input id="photo-input" type="file" accept="image/*" class="hidden">
+        <input
+          id="photo-input"
+          type="file"
+          accept="image/jpeg,image/png,image/webp,image/*"
+          class="hidden"
+        >
 
-        <div id="photo-preview"
-          class="hidden mt-4 bg-[#111111] border border-[#534433] rounded-lg p-4">
+        <div
+          id="photo-preview"
+          class="hidden mt-4 bg-[#111111] border border-[#534433] rounded-lg p-4"
+        >
 
-          <div class="flex items-center gap-3">
+          <img
+            id="preview-image"
+            alt="Selected tool photo"
+          >
 
-            <span class="material-symbols-outlined text-[#ffc887]">image</span>
+          <div class="flex items-center gap-3 mt-4">
+
+            <span class="material-symbols-outlined text-[#ffc887]">
+              image
+            </span>
 
             <div class="min-w-0">
-              <p class="font-semibold">Photo Selected</p>
 
-              <p id="photo-name"
-                class="text-sm text-[#a18e79] truncate">
+              <p class="font-semibold">
+                Photo Selected
               </p>
+
+              <p
+                id="photo-name"
+                class="text-sm text-[#a18e79] truncate"
+              ></p>
+
             </div>
 
           </div>
 
+          <button
+            id="remove-photo"
+            type="button"
+            class="mt-4 text-sm text-red-400 hover:text-red-300"
+          >
+            Remove Photo
+          </button>
+
         </div>
 
-        <button id="start-button" type="button"
-          class="w-full mt-6 bg-[#fca311] hover:bg-[#ffc887] text-black font-bold py-4 rounded-lg flex justify-center items-center gap-2 transition">
+        <button
+          id="start-button"
+          type="button"
+          class="w-full mt-6 bg-[#fca311] hover:bg-[#ffc887] text-black font-bold py-4 rounded-lg flex justify-center items-center gap-2 transition"
+        >
 
-          <span class="material-symbols-outlined">memory</span>
+          <span class="material-symbols-outlined">
+            memory
+          </span>
+
           Start AI Diagnosis
 
         </button>
@@ -185,11 +299,15 @@
 
         <div class="flex gap-3">
 
-          <span class="material-symbols-outlined text-[#ffc887]">warning</span>
+          <span class="material-symbols-outlined text-[#ffc887]">
+            warning
+          </span>
 
           <div>
 
-            <h3 class="font-bold text-[#ffc887]">Safety First</h3>
+            <h3 class="font-bold text-[#ffc887]">
+              Safety First
+            </h3>
 
             <p class="text-[#d9c3ad] text-sm mt-1">
               Always unplug electrical tools before opening or repairing them.
@@ -236,7 +354,7 @@
             </p>
 
             <p class="text-sm mt-2">
-              Describe the problem and press Start AI Diagnosis.
+              Describe the problem, upload a photo, or use the camera.
             </p>
 
           </div>
@@ -259,7 +377,10 @@
 
       <div class="flex items-center gap-2 font-bold text-[#ffc887]">
 
-        <span class="material-symbols-outlined">build</span>
+        <span class="material-symbols-outlined">
+          build
+        </span>
+
         The Tool Doctor
 
       </div>
@@ -286,7 +407,7 @@
 <script>
 
 /* =========================================
-   IMPORTANT: CLOUDFLARE WORKER URL
+   CLOUDFLARE WORKER
 ========================================= */
 
 const WORKER_URL =
@@ -327,77 +448,285 @@ const photoPreview =
 const photoName =
   document.getElementById("photo-name");
 
+const previewImage =
+  document.getElementById("preview-image");
+
+const removePhoto =
+  document.getElementById("remove-photo");
+
+
+/* =========================================
+   IMAGE STATE
+========================================= */
+
+let selectedImageBase64 = "";
+let selectedImageMimeType = "";
+
 
 /* =========================================
    NAVIGATION
 ========================================= */
 
-navDiagnose.addEventListener("click", () => {
+navDiagnose.addEventListener(
+  "click",
+  () => {
 
-  document
-    .getElementById("diagnose")
-    .scrollIntoView({
-      behavior: "smooth"
-    });
+    document
+      .getElementById("diagnose")
+      .scrollIntoView({
+        behavior: "smooth"
+      });
 
-  setTimeout(() => {
-    textarea.focus();
-  }, 500);
-
-});
+    setTimeout(
+      () => textarea.focus(),
+      500
+    );
+  }
+);
 
 
 /* =========================================
-   UPLOAD PHOTO
+   GALLERY
 ========================================= */
 
-uploadButton.addEventListener("click", () => {
+uploadButton.addEventListener(
+  "click",
+  () => {
 
-  photoInput.removeAttribute("capture");
+    photoInput.removeAttribute("capture");
 
-  photoInput.click();
-
-});
+    photoInput.click();
+  }
+);
 
 
 /* =========================================
    CAMERA
 ========================================= */
 
-cameraButton.addEventListener("click", () => {
+cameraButton.addEventListener(
+  "click",
+  () => {
 
-  photoInput.setAttribute(
-    "capture",
-    "environment"
-  );
+    photoInput.setAttribute(
+      "capture",
+      "environment"
+    );
 
-  photoInput.click();
-
-});
+    photoInput.click();
+  }
+);
 
 
 /* =========================================
    PHOTO SELECTED
 ========================================= */
 
-photoInput.addEventListener("change", () => {
+photoInput.addEventListener(
+  "change",
+  async () => {
 
-  if (
-    !photoInput.files ||
-    !photoInput.files.length
-  ) {
-    return;
+    if (
+      !photoInput.files ||
+      !photoInput.files.length
+    ) {
+      return;
+    }
+
+    const file =
+      photoInput.files[0];
+
+    try {
+
+      startButton.disabled = true;
+
+      const processed =
+        await prepareImage(file);
+
+      selectedImageBase64 =
+        processed.base64;
+
+      selectedImageMimeType =
+        processed.mimeType;
+
+      photoName.textContent =
+        file.name;
+
+      previewImage.src =
+        "data:" +
+        processed.mimeType +
+        ";base64," +
+        processed.base64;
+
+      photoPreview.classList.remove(
+        "hidden"
+      );
+
+    } catch (error) {
+
+      alert(
+        "Could not process the image. Please try another photo."
+      );
+
+      console.error(error);
+
+    } finally {
+
+      startButton.disabled = false;
+    }
   }
+);
 
-  const file =
-    photoInput.files[0];
 
-  photoName.textContent =
-    file.name;
+/* =========================================
+   REMOVE PHOTO
+========================================= */
 
-  photoPreview.classList.remove("hidden");
+removePhoto.addEventListener(
+  "click",
+  () => {
 
-});
+    selectedImageBase64 = "";
+    selectedImageMimeType = "";
+
+    photoInput.value = "";
+
+    previewImage.src = "";
+
+    photoName.textContent = "";
+
+    photoPreview.classList.add(
+      "hidden"
+    );
+  }
+);
+
+
+/* =========================================
+   PREPARE / COMPRESS IMAGE
+========================================= */
+
+function prepareImage(file) {
+
+  return new Promise(
+    (resolve, reject) => {
+
+      if (
+        !file.type.startsWith("image/")
+      ) {
+        reject(
+          new Error(
+            "Selected file is not an image."
+          )
+        );
+
+        return;
+      }
+
+      const reader =
+        new FileReader();
+
+      reader.onload = () => {
+
+        const img =
+          new Image();
+
+        img.onload = () => {
+
+          const maxSize = 1280;
+
+          let width =
+            img.width;
+
+          let height =
+            img.height;
+
+          if (width > maxSize ||
+              height > maxSize) {
+
+            const scale =
+              Math.min(
+                maxSize / width,
+                maxSize / height
+              );
+
+            width =
+              Math.round(
+                width * scale
+              );
+
+            height =
+              Math.round(
+                height * scale
+              );
+          }
+
+          const canvas =
+            document.createElement(
+              "canvas"
+            );
+
+          canvas.width =
+            width;
+
+          canvas.height =
+            height;
+
+          const ctx =
+            canvas.getContext(
+              "2d"
+            );
+
+          ctx.drawImage(
+            img,
+            0,
+            0,
+            width,
+            height
+          );
+
+          const dataURL =
+            canvas.toDataURL(
+              "image/jpeg",
+              0.82
+            );
+
+          const comma =
+            dataURL.indexOf(",");
+
+          const base64 =
+            dataURL.substring(
+              comma + 1
+            );
+
+          resolve({
+            base64: base64,
+            mimeType: "image/jpeg"
+          });
+        };
+
+        img.onerror =
+          () => reject(
+            new Error(
+              "Unable to read image."
+            )
+          );
+
+        img.src =
+          reader.result;
+      };
+
+      reader.onerror =
+        () => reject(
+          new Error(
+            "Unable to read selected file."
+          )
+        );
+
+      reader.readAsDataURL(file);
+    }
+  );
+}
 
 
 /* =========================================
@@ -415,10 +744,13 @@ startButton.addEventListener(
       toolSelect.value;
 
 
-    if (!problem) {
+    if (
+      !problem &&
+      !selectedImageBase64
+    ) {
 
       alert(
-        "Please describe the power tool problem first."
+        "Please describe the problem or upload a photo."
       );
 
       textarea.focus();
@@ -427,7 +759,9 @@ startButton.addEventListener(
     }
 
 
-    startButton.disabled = true;
+    startButton.disabled =
+      true;
+
 
     startButton.innerHTML = `
       <span class="material-symbols-outlined spin">
@@ -449,7 +783,7 @@ startButton.addEventListener(
         </p>
 
         <p class="text-sm text-[#a18e79] mt-2">
-          Checking symptoms and possible causes.
+          Checking symptoms and photo evidence.
         </p>
 
       </div>
@@ -470,8 +804,19 @@ startButton.addEventListener(
             },
 
             body: JSON.stringify({
-              tool: tool,
-              problem: problem
+
+              tool:
+                tool,
+
+              problem:
+                problem,
+
+              imageBase64:
+                selectedImageBase64,
+
+              imageMimeType:
+                selectedImageMimeType
+
             })
           }
         );
@@ -483,18 +828,16 @@ startButton.addEventListener(
 
       let data;
 
-
       try {
 
         data =
           JSON.parse(text);
 
-      } catch {
+      } catch (_) {
 
         throw new Error(
           "Worker returned an invalid response."
         );
-
       }
 
 
@@ -503,15 +846,14 @@ startButton.addEventListener(
         const detail =
           data.details
             ? " Gemini API error: " +
-              JSON.stringify(data.details)
+              data.details
             : "";
 
         throw new Error(
           (data.error ||
-          "AI diagnosis failed.") +
+            "AI diagnosis failed.") +
           detail
         );
-
       }
 
 
@@ -553,10 +895,13 @@ startButton.addEventListener(
         </div>
 
       `;
+    }
 
-    } finally {
 
-      startButton.disabled = false;
+    finally {
+
+      startButton.disabled =
+        false;
 
       startButton.innerHTML = `
 
@@ -567,7 +912,6 @@ startButton.addEventListener(
         Start AI Diagnosis
 
       `;
-
     }
 
   }
@@ -600,7 +944,9 @@ function showDiagnosis(data) {
     "No alternative fault identified.";
 
   const alternativeConfidence =
-    Number(data.alternativeConfidence) || 0;
+    Number(
+      data.alternativeConfidence
+    ) || 0;
 
   const safety =
     data.safety ||
@@ -642,7 +988,7 @@ function showDiagnosis(data) {
             Symptom Match
           </p>
 
-          <p class="text-[#f0e0d1]">
+          <p class="text-[#f0e0d1] whitespace-pre-line">
             ${escapeHTML(symptomMatch)}
           </p>
 
@@ -676,7 +1022,7 @@ function showDiagnosis(data) {
                 Safety
               </p>
 
-              <p class="text-sm text-[#f0e0d1]">
+              <p class="text-sm text-[#f0e0d1] whitespace-pre-line">
                 ${escapeHTML(safety)}
               </p>
 
@@ -709,57 +1055,69 @@ function showDiagnosis(data) {
       <button
         id="another-button"
         type="button"
-        class="w-full border border-[#534433] hover:border-[#ffc887] hover:bg-[#3c3329] py-3 rounded-lg transition">
-
+        class="w-full border border-[#534433] hover:border-[#ffc887] hover:bg-[#3c3329] py-3 rounded-lg transition"
+      >
         Diagnose Another Tool
-
       </button>
 
     </div>
   `;
 
 
-  const anotherButton =
-    document.getElementById(
+  document
+    .getElementById(
       "another-button"
+    )
+    .addEventListener(
+      "click",
+      resetDiagnosis
     );
+}
 
 
-  anotherButton.addEventListener(
-    "click",
-    () => {
+/* =========================================
+   RESET
+========================================= */
 
-      textarea.value = "";
+function resetDiagnosis() {
 
-      photoInput.value = "";
+  textarea.value = "";
 
-      photoPreview.classList.add("hidden");
+  photoInput.value = "";
 
-      resultArea.innerHTML = `
+  selectedImageBase64 = "";
 
-        <div class="text-center py-20 text-[#a18e79]">
+  selectedImageMimeType = "";
 
-          <span class="material-symbols-outlined text-6xl mb-4">
-            engineering
-          </span>
+  previewImage.src = "";
 
-          <p class="text-lg">
-            Your AI diagnosis will appear here.
-          </p>
+  photoName.textContent = "";
 
-          <p class="text-sm mt-2">
-            Describe the problem and press Start AI Diagnosis.
-          </p>
-
-        </div>
-
-      `;
-
-      textarea.focus();
-
-    }
+  photoPreview.classList.add(
+    "hidden"
   );
 
+  resultArea.innerHTML = `
+
+    <div class="text-center py-20 text-[#a18e79]">
+
+      <span class="material-symbols-outlined text-6xl mb-4">
+        engineering
+      </span>
+
+      <p class="text-lg">
+        Your AI diagnosis will appear here.
+      </p>
+
+      <p class="text-sm mt-2">
+        Describe the problem or upload a photo.
+      </p>
+
+    </div>
+
+  `;
+
+  textarea.focus();
 }
 
 
@@ -775,10 +1133,9 @@ function escapeHTML(value) {
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#039;");
-
 }
 
 </script>
 
 </body>
-  </html>
+          </html>
